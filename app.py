@@ -23,7 +23,7 @@ def uplink():
         client.tls_set(cert_reqs=ssl.CERT_NONE,tls_version=ssl.PROTOCOL_TLSv1_2)
         client.tls_insecure_set(True)
         client.on_connect = on_connect
-        client.connect(environ['mqtt_url'],environ['mqtt_port'], 60)
+        client.connect(environ['mqtt_url'],int(environ['mqtt_port']), 60)
         client.publish(environ['mqtt_topic'],payload=json.dumps(data), qos=0, retain=False)
         client.disconnect()
         return "OK"
