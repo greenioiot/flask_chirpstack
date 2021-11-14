@@ -13,7 +13,7 @@ def helloWorld():
 @app.route("/uplink",methods=["POST"])
 def uplink():
     json_data = flask.request.json
-    data = json.loads(json_data["objectJSON"])
+    data = json_data["objectJSON"]
     token = data.get("token")
     if (token is not None):
         data.pop("token")
